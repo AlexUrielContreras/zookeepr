@@ -5,6 +5,12 @@ const { animals } = require('./data/aniamls')
 
 
 
+function findById(id, animalsArray) {
+    const result = animalsArray.filter(animal => animal.id === id)[0];
+    return result
+}
+
+
 function filterByQuery(query, animalsArray) {
     let personalityTraitsArray = []
     let filteredResults = animalsArray;
@@ -33,10 +39,10 @@ function filterByQuery(query, animalsArray) {
     }
 
     if (query.diet) {
-        filteredResults = filteredResults.filter(aniamls => animals.diet === query.diet); 
+        filteredResults = filteredResults.filter(animals => animals.diet === query.diet); 
     }
     if (query.species) {
-        filteredResults = filteredResults.filter(aniamls => animals.species === query.species)
+        filteredResults = filteredResults.filter(animals => animals.species === query.species)
     }
     if (query.name) {
         filteredResults = filteredResults.filter(animals => animals.name === query.name)
@@ -51,6 +57,15 @@ app.get('/api/animals', (req, res) => {
     }
     res.json(results)
 })
+
+app.get('/api/animals/:id', (req, res) => {
+    const result = findById(req.params.id, animals);
+    if (result) {
+        res.json(result)
+    }else {
+        res.sendStatus(404)
+    }
+});
 
 app.listen(PORT, () => {
     console.log(`API server now on port ${PORT}`);
