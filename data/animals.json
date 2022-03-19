@@ -101,11 +101,11 @@
       ]
     },
     {
-      "name": "Larry",
-      "species": "lemur",
-      "diet": "omnivore",
+      "name": "Cat",
+      "species": "feline",
+      "diet": "herbivore",
       "personalityTraits": [
-        "hungry"
+        "zany"
       ],
       "id": "10"
     }
