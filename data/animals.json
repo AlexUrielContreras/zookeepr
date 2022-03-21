@@ -99,15 +99,10 @@
       "personalityTraits": [
         "hungry"
       ]
-    },
-    {
-      "name": "Cat",
-      "species": "feline",
-      "diet": "herbivore",
-      "personalityTraits": [
-        "zany"
-      ],
-      "id": "10"
     }
   ]
 }
+    
+     
+    
+  
